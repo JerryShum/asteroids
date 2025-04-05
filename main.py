@@ -51,6 +51,12 @@ def main():
             if asteroid.collision(player):
                 sys.exit("Game Over!")
             
+        for asteroid in asteroids:
+            for shot in shots:
+                if asteroid.collision(shot):
+                    shot.kill()
+                    asteroid.split()
+             
         screen.fill("black")
         
         # Drawing all objects in the drawable group
